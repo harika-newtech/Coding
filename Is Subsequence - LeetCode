@@ -1,0 +1,14 @@
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int slen = s.length();
+        int tlen = t.length();
+        int left =0,right = 0;
+        while(left < slen && right < tlen){
+            if(s.charAt(left) == t.charAt(right)){
+                left++;
+            }
+            right++;
+        }
+        return left == slen;
+    }
+}
