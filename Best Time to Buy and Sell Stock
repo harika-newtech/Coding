@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int len = prices.length;
+        int[] suffixmax = new int[len];
+        suffixmax[len-1] = prices[len-1];
+        for(int i = len-2;i>=0;i--){
+            suffixmax[i] = Math.max(prices[i],suffixmax[i+1]);
+        }
+        int maxProfit = Integer.MIN_VALUE;
+        for(int i=0;i< len;i++){
+            if( maxProfit < suffixmax[i]-prices[i]){
+                maxProfit = suffixmax[i]-prices[i];
+            }
+
+        }
+        return maxProfit;
+    }
+}
